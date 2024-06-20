@@ -1,3 +1,14 @@
+1.php artisan migrate
+2.kategori isi manual
+3.Tombol "+" adalah tombol pemasukan
+4.Tombol "-" adalah Tombol Pengeluaran
+5.fitur yang ada adalah edit dan hapus
+6.jumlah pemasukan akan bertambah seiring menambah pemasukan begitu pula jumlah pengeluaran
+7.Saldo atau sisa saldo adalah hasil dari Pengurangan jumlah pemasukan dan jumlah pengurangan
+                                    TERIMAKASIH
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
