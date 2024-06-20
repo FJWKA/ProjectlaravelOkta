@@ -1,11 +1,18 @@
 1.php artisan migrate
-2.kategori isi manual
+
+2.jika saat mengisi kategori dan tidak ada drop down kategori bisa di isi manual
+
 3.Tombol "+" adalah tombol pemasukan
+
 4.Tombol "-" adalah Tombol Pengeluaran
+
 5.fitur yang ada adalah edit dan hapus
+
 6.jumlah pemasukan akan bertambah seiring menambah pemasukan begitu pula jumlah pengeluaran
+
 7.Saldo atau sisa saldo adalah hasil dari Pengurangan jumlah pemasukan dan jumlah pengurangan
-                                    TERIMAKASIH
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\TERIMAKASIH///////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
