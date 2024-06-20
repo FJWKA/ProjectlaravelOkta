@@ -16,20 +16,19 @@
             margin-bottom: 0.5rem;
         }
         h3 {
-            font-size: 1.5rem; /* Mengurangi ukuran font untuk saldo */
+            font-size: 1.5rem;
         }
-        .btn {
-            padding: 0.5rem 1rem; /* Ukuran padding tombol */
-            font-size: 1rem; /* Ukuran font tombol */
+        .btn-lg {
+            padding: 0.5rem 1rem;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 1rem;
-            font-size: 0.875rem; /* Mengurangi ukuran font untuk tabel */
+            font-size: 0.875rem;
         }
         th, td {
-            padding: 0.5rem; /* Mengurangi padding tabel */
+            padding: 0.5rem;
             text-align: left;
             border-bottom: 1px solid #dee2e6;
         }
@@ -39,11 +38,26 @@
         tr:hover {
             background-color: #f1f1f1;
         }
+        .btn {
+            margin-right: 0.5rem;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
         .container {
             background-color: #ffffff;
             padding: 2rem;
             border-radius: 0.5rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-sm {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
         }
     </style>
 </head>
@@ -85,6 +99,7 @@
                     <th>Tanggal</th>
                     <th>Nilai</th>
                     <th>Deskripsi</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -95,6 +110,14 @@
                         <td>{{ $pemasukan->tanggal_pemasukan }}</td>
                         <td>{{ number_format($pemasukan->jumlah_pemasukan, 2, ',', '.') }}</td>
                         <td>{{ $pemasukan->deskripsi }}</td>
+                        <td class="action-buttons">
+                            <a href="{{ route('pemasukan.edit', $pemasukan->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                            <form action="{{ route('pemasukan.destroy', $pemasukan->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus pemasukan ini?')">Hapus</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
@@ -110,6 +133,7 @@
                     <th>Tanggal</th>
                     <th>Nilai</th>
                     <th>Deskripsi</th>
+                    <th>Aksi</th>
                 </tr>
             <tbody>
                 @foreach($pengeluarans as $pengeluaran)
@@ -119,6 +143,14 @@
                         <td>{{ $pengeluaran->tanggal_pengeluaran }}</td>
                         <td>{{ number_format($pengeluaran->jumlah_pengeluaran, 2, ',', '.') }}</td>
                         <td>{{ $pengeluaran->deskripsi }}</td>
+                        <td class="action-buttons">
+                            <a href="{{ route('pengeluaran.edit', $pengeluaran->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                            <form action="{{ route('pengeluaran.destroy', $pengeluaran->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus pengeluaran ini?')">Hapus</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

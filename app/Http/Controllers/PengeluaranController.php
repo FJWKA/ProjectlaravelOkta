@@ -29,7 +29,39 @@ class PengeluaranController extends Controller
             'tanggal_pengeluaran' => now(),
         ]);
 
-        // Redirect ke halaman manajemen dengan pesan sukses
         return redirect()->route('manajemen.index')->with('success', 'Pengeluaran berhasil ditambahkan');
+    }
+
+    public function edit($id)
+    {
+        $pengeluaran = Pengeluaran::findOrFail($id);
+        $kategoris = Kategori::all();
+        return view('editPengeluaran', compact('pengeluaran', 'kategoris'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nilai' => 'required|numeric',
+            'kategori' => 'required|exists:tb_kategoris,id',
+            'deskripsi' => 'nullable|string',
+        ]);
+
+        $pengeluaran = Pengeluaran::findOrFail($id);
+        $pengeluaran->update([
+            'jumlah_pengeluaran' => $request->nilai,
+            'kategori_id' => $request->kategori,
+            'deskripsi' => $request->deskripsi,
+        ]);
+
+        return redirect()->route('manajemen.index')->with('success', 'Pengeluaran berhasil diperbarui');
+    }
+
+    public function destroy($id)
+    {
+        $pengeluaran = Pengeluaran::findOrFail($id);
+        $pengeluaran->delete();
+
+        return redirect()->route('manajemen.index')->with('success', 'Pengeluaran berhasil dihapus');
     }
 }
