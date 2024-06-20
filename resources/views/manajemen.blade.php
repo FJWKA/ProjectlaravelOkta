@@ -18,8 +18,9 @@
         h3 {
             font-size: 1.5rem; /* Mengurangi ukuran font untuk saldo */
         }
-        .btn-lg {
-            padding: 0.5rem 1rem;
+        .btn {
+            padding: 0.5rem 1rem; /* Ukuran padding tombol */
+            font-size: 1rem; /* Ukuran font tombol */
         }
         table {
             width: 100%;
@@ -37,12 +38,6 @@
         }
         tr:hover {
             background-color: #f1f1f1;
-        }
-        .btn {
-            margin-right: 0.5rem;
-        }
-        .btn:hover {
-            opacity: 0.8;
         }
         .container {
             background-color: #ffffff;
@@ -75,8 +70,8 @@
         <!-- Tombol Tambah -->
         <div class="row mb-4">
             <div class="col-md-8">
-                <a href="{{ route('pemasukan.index') }}" class="btn btn-success btn-lg">Tambah Pemasukan</a>
-                <a href="{{ route('pengeluaran.index') }}" class="btn btn-danger btn-lg">Tambah Pengeluaran</a>
+                <a href="{{ route('pemasukan.index') }}" class="btn btn-success btn-lg">+</a>
+                <a href="{{ route('pengeluaran.index') }}" class="btn btn-danger btn-lg">-</a>
             </div>
         </div>
 
@@ -86,20 +81,20 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Tanggal</th>
                     <th>Kategori</th>
-                    <th>Deskripsi</th>
+                    <th>Tanggal</th>
                     <th>Nilai</th>
+                    <th>Deskripsi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($pemasukans as $pemasukan)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $pemasukan->tanggal_pemasukan }}</td>
                         <td>{{ $pemasukan->kategori->name }}</td>
-                        <td>{{ $pemasukan->deskripsi }}</td>
+                        <td>{{ $pemasukan->tanggal_pemasukan }}</td>
                         <td>{{ number_format($pemasukan->jumlah_pemasukan, 2, ',', '.') }}</td>
+                        <td>{{ $pemasukan->deskripsi }}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -111,20 +106,19 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Tanggal</th>
                     <th>Kategori</th>
-                    <th>Deskripsi</th>
+                    <th>Tanggal</th>
                     <th>Nilai</th>
+                    <th>Deskripsi</th>
                 </tr>
-            </thead>
             <tbody>
                 @foreach($pengeluarans as $pengeluaran)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $pengeluaran->tanggal_pengeluaran }}</td>
                         <td>{{ $pengeluaran->kategori->name }}</td>
-                        <td>{{ $pengeluaran->deskripsi }}</td>
+                        <td>{{ $pengeluaran->tanggal_pengeluaran }}</td>
                         <td>{{ number_format($pengeluaran->jumlah_pengeluaran, 2, ',', '.') }}</td>
+                        <td>{{ $pengeluaran->deskripsi }}</td>
                     </tr>
                 @endforeach
             </tbody>
